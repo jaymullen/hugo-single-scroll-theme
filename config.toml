@@ -1,0 +1,4 @@
+theme = "capn-monroe"
+baseURL = ""
+title = "Single Page Modular Theme"
+languageCode = "en-us"

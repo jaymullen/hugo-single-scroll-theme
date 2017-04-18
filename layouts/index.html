@@ -1,0 +1,28 @@
+{{ partial "header.html" . }}
+<body class="home-template">
+
+    <!-- The big featured header on the homepage, with the site logo and description -->
+    <header class="site-head">
+      <img src="{{ .Site.Params.logo }}" class="site-logo">
+    </header>
+
+    <main class="content" role="main">
+
+      {{ partial "navigation.html" .}}
+
+      <div class="main-container">
+        {{ range .Data.Pages.ByWeight }}
+                {{ if eq .Type  "section" }}
+                    {{ .Render "summary" }}
+                {{ end }}
+        {{ end }}
+      </div>
+
+    </main>
+
+    {{ partial "footer.html" .}}
+
+    {{ partial "script.html" .}}
+
+</body>
+</html>

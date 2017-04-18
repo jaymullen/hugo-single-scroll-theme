@@ -1,0 +1,7 @@
+<footer class="site-footer">
+    <div>
+      {{ if .Site.Params.email }}
+      <a href="mailto:{{ .Site.Params.email }}" title="Email {{ .Site.Params.email }}"> <i class='fa fa-envelope-o fa-2x'></i></a>
+      {{ end }}
+    </div>
+</footer>

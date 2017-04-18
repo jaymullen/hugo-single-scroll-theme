@@ -1,0 +1,25 @@
+<header class="centered-navigation" role="banner">
+  <div class="centered-navigation-wrapper">
+    <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" class="centered-navigation-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+            <li class="nav-link {{ if .HasChildren }}more{{ end }}">
+              <a href="#{{ .Identifier }}">{{ .Name }}</a>
+
+              {{ if .HasChildren }}
+                <ul class="submenu fly-out-right">
+                {{ range .Children }}
+                  <li><a href="#{{ .Identifier }}">{{ .Name }}</a></li>
+                {{ end }}
+                </ul>
+              {{ end }}
+
+            </li>
+        {{ end }}
+
+      </ul>
+    </nav>
+  </div>
+</header>
