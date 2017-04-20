@@ -1,5 +1,9 @@
 <footer class="site-footer">
     <div>
+      {{ if .Site.Params.phone }}
+      <a href="tel:{{ .Site.Params.phone }}" title="Phone # {{ .Site.Params.phone }}"> <i class="fa fa-phone fa-2x"></i></a>
+      {{ end }}
+      
       {{ if .Site.Params.email }}
       <a href="mailto:{{ .Site.Params.email }}" title="Email {{ .Site.Params.email }}"> <i class='fa fa-envelope-o fa-2x'></i></a>
       {{ end }}

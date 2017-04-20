@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 
     // Compile SCSS files to CSS
     gulp.task("scss", function () {
-        gulp.src("static/scss/**/*.scss")
+        gulp.src("assets/scss/**/*.scss")
             .pipe(sass({
                 outputStyle : "compressed"
             }))
@@ -14,15 +14,21 @@ var gulp = require('gulp'),
             .pipe(gulp.dest("static/css"))
     })
 
+    gulp.task("css", function(){
+      gulp.src("assets/css/**/*.css")
+          .pipe(gulp.dest("static/css"))
+    });
+
     gulp.task("js", function(){
-        gulp.src("static/js/**/*.js")
-            .pipe(gulp.dest("static/js")) 
+        gulp.src("assets/js/**/*.js")
+            .pipe(gulp.dest("static/js"))
     })
 
     // Watch asset folder for changes
     gulp.task("watch", ["scss"], function () {
-        gulp.watch("static/scss/**/*", ["scss"])
-        gulp.watch("src/js/**/*", ["js"])
+        gulp.watch("assets/scss/**/*", ["scss"])
+        gulp.watch("assets/css/**/*", ["css"])
+        gulp.watch("assets/js/**/*", ["js"])
     })
 
     // Set watch as default task

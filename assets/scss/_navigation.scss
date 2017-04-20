@@ -167,6 +167,10 @@
       padding-right: $centered-navigation-submenu-padding;
     }
 
+    .submenu a{
+      margin-right:0;
+    }
+
     > ul > li:first-child a  {
       padding-top: 1em;
     }
@@ -198,9 +202,9 @@
       padding-right: 1.6em;
       position: relative;
 
-      @include media($large-screen) {
-        margin-right: $centered-navigation-submenu-padding;
-      }
+      // @include media($large-screen) {
+      //   margin-right: $centered-navigation-submenu-padding;
+      // }
 
       &::after {
         content: "›";
@@ -213,6 +217,7 @@
     &:focus > .submenu,
     &:hover > .submenu {
       display: block;
+      border: 1px #e6e6e6 solid;
     }
 
     @include media($horizontal-bar-mode) {
