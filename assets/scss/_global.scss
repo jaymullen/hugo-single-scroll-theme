@@ -26,12 +26,12 @@ a:hover{
   align-items:center;
   justify-content:center;
   flex-direction: column;
-  min-height: 55vh;
+  min-height: 38vh;
   width:100%;
 }
 
 .site-logo{
-  height:50vh;
+  height:32vh;
   z-index: 1;
   position: fixed;
 }
@@ -55,9 +55,42 @@ a:hover{
 
   .post-content{
     border-top: 1px solid #eee;
-
     img{
+      width: 100%;
+    }
+
+    .caption-image{
+      display: block;
+      position: relative;
+    }
+
+    .caption-image figure{
+      position: relative;
+      top: 0;
+    }
+
+    .caption-image img{
       width:100%;
+      opacity: 1;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      position: relative;
+    }
+
+    .caption-image figcaption{
+      position: absolute;
+      width:100%;
+      font-family: sans-serif;
+      font-size: 1em;
+      bottom: 0;
+      padding: .6em;
+      margin-bottom: 0.3em;
+      text-align: center;
+      color: #fff;
+      background: #000;
+      background: rgba(0,0,0, .55);
+      -webkit-transition: opacity 1.2s;
+      transition: opacity 1.2s;
     }
   }
 

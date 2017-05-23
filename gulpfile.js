@@ -27,7 +27,7 @@ var gulp = require('gulp'),
     // Watch asset folder for changes
     gulp.task("watch", ["scss"], function () {
         gulp.watch("assets/scss/**/*", ["scss"])
-        gulp.watch("assets/css/**/*", ["css"])
+        // gulp.watch("assets/css/**/*", ["css"])
         gulp.watch("assets/js/**/*", ["js"])
     })
 

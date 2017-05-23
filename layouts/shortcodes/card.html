@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-image">
+    <a href="{{ .Get "link" }}"><img src="{{ .Get "image" }}" alt=""></a>
+  </div>
+  <div class="card-header">
+    <a href="{{ .Get "link" }}">{{ .Get "name" }}</a>
+  </div>
+  <div class="card-copy">
+    <p><a href="{{ .Get "link" }}">{{ .Get "caption" }}</a></p>
+  </div>
+</div>

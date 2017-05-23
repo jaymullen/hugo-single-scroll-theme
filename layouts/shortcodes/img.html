@@ -1,0 +1,15 @@
+{{- $url := .Get "url" -}}
+{{- $caption := .Get "caption" -}}
+{{- with .Parent -}}
+<figure>
+    <img src="{{$url}}" width="100%" />
+    <figcaption>{{ $caption }}</figcaption>
+</figure>
+{{- else -}}
+<div class="caption-image">
+  <figure>
+      <img src="{{$url}}" width="100%" />
+      <figcaption>{{ $caption }}</figcaption>
+  </figure>
+</div>
+{{- end }}

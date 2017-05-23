@@ -1,0 +1,15 @@
+<div class="slideshow-slides {{ .Get "name" }}" tabindex="1" autofocus="autofocus">
+  {{ .Inner }}
+</div>
+
+<script>
+var opts = {
+    auto : {
+        speed : 5000,
+        pauseOnHover : true
+    },
+    fullScreen : false,
+    swipe : true
+};
+makeSlideshow('.{{ .Get "name" }}', opts);
+</script>

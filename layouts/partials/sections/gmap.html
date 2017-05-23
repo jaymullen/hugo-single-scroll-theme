@@ -1,0 +1,124 @@
+<div id="map_canvas"></div>
+<div id="map-status"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqPZqISkSuPMLHZu3qhd1si4-3Vf41q3c"></script>
+<script>
+  var initMap = (function () {
+    var myLatlng = new google.maps.LatLng(62.749378,-150.1139267),
+        mapCenter = new google.maps.LatLng(62.749378,-150.1139267),
+        mapCanvas = document.getElementById('map_canvas'),
+        mapOptions = {
+          center: mapCenter,
+          zoom: 10,
+          scrollwheel: false,
+          draggable: true,
+          disableDefaultUI: false,
+          mapTypeId: google.maps.MapTypeId.TERRAIN
+        },
+        map = new google.maps.Map(mapCanvas, mapOptions),
+        contentString =
+          '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">thoughtbot</h1>'+
+          '<div id="bodyContent"'+
+          '<p>Sveavägen 98</p>'+
+          '</div>'+
+          '</div>',
+        infowindow = new google.maps.InfoWindow({
+          content: "",
+          maxWidth: 300
+        }),
+        fullTraverseKmlLayer = new google.maps.KmlLayer({
+          url: 'http://kesugiridgetraverse.github.io/gps/kesugi-ridge-traverse.kml?asit=isit',
+          suppressInfoWindows: true,
+          map: map
+        });
+
+        var iconBase = 'http://localhost:1313';
+        var icons = {
+          start: {
+            icon: 'default'
+          },
+          end: {
+            icon: iconBase + 'library_maps.png'
+          },
+          heli: {
+            icon: iconBase + '/img/icon-heli-16.png'
+          },
+          mile: {
+            icon: iconBase + '/img/icon-mile.png'
+          }
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(62.891388,-149.746981),
+            type: 'start'
+          }, {
+            position: new google.maps.LatLng(62.746493,-150.115344),
+            type: 'end'
+          }, {
+           position: new google.maps.LatLng(62.791,-149.862),
+           type: 'end'
+          }, {
+           position: new google.maps.LatLng(62.794,-149.890),
+           type: 'heli'
+          }, {
+           position: new google.maps.LatLng(62.720,-150.032),
+           type: 'heli'
+          }, {
+           position: new google.maps.LatLng(62.815,-149.746),
+           type: 'heli'
+          }, {
+           position: new google.maps.LatLng(62.724720,-150.043559),
+           type: 'mile'
+          },
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          console.log(feature);
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            map: map,
+            // icon: icons[feature.type].icon,
+            title: feature.type
+          });
+        });
+        // halfTraverseKmlLayer = new google.maps.KmlLayer({
+        //   url: 'http://kesugiridgetraverse.github.io/gps/kesugi-ridge-half.kml?asit=isit',
+        //   suppressInfoWindows: true,
+        //   map: map
+        // });
+        fullTraverseKmlLayer.addListener('click', function(kmlEvent) {
+          var text = "lat " + kmlEvent.latLng.lat().toFixed(3) + " lng " + kmlEvent.latLng.lng().toFixed(3);
+          showInContentWindow(text);
+        });
+
+        function showInContentWindow(text) {
+          var sidediv = document.getElementById('map-status');
+          sidediv.innerHTML = text;
+        }
+
+    return {
+      init: function () {
+        map.set('styles', [{
+          featureType: 'landscape',
+          elementType: 'geometry',
+          stylers: [
+            { hue: '#ffff00' },
+            { saturation: 30 },
+            { lightness: 10}
+          ]}
+        ]);
+
+        // google.maps.event.addListener(marker, 'click', function () {
+        //   console.log(marker);
+        //   infowindow.open(map,marker);
+        // });
+      }
+    };
+  }());
+
+  initMap.init();
+</script>
