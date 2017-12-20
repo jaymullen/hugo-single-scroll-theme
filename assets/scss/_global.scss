@@ -30,10 +30,18 @@ a:hover{
   width:100%;
 }
 
+.site-sub-head{
+  color: #333;
+  font-family: "Oxygen","Helvetica Neue","Helvetica","Roboto","Arial","sans-serif";
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
 .site-logo{
   height:32vh;
   z-index: 1;
-  position: fixed;
+  
 }
 
 .content{

@@ -18,7 +18,7 @@
   $card-header-background: $card-background;
   $card-margin: 1em;
   $card-image-hover-opacity: 0.7;
-  $card-image-hover-color: #F8F2B4;
+  $card-image-hover-color: #FFF;
 
   background-color: $card-background;
   border: $card-border;
@@ -35,6 +35,9 @@
     background-color: $card-image-hover-color;
     min-height: 150px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
       @include border-top-radius($base-border-radius);

@@ -1,7 +1,7 @@
 //Sticky Nav
 $(function(){
     $(window).scroll(function() {
-        if ($(this).scrollTop() >= 315) {
+        if ($(this).scrollTop() >= 232) {
             $('.centered-navigation').addClass('stickytop');
         }
         else {
